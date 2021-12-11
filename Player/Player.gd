@@ -7,6 +7,7 @@ extends KinematicBody2D
 const FLOOR_NORMAL = Vector2.UP
 
 onready var start_position = global_position
+onready var animation = $PlayerSprite/AnimationPlayer
 
 export var jump_force := 1000.0
 export var gravity := 3000.0
@@ -22,10 +23,13 @@ var velocity := Vector2.ZERO
 
 # Runs physics calc on every frame
 func _physics_process(delta: float) -> void:
-
 	jump_state(delta)
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("jump"):
+		animation.play("Flap")
 
-func jump_state(delta: float) -> void:	
+func jump_state(delta: float) -> void:
 	var direction := get_direction()
 	
 	velocity = calculate_move_velocity(velocity, direction, jump_force, delta)
