@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/Interface.tscn" type="PackedScene" id=1]
+[ext_resource path="res://WorldObjects/WorldTop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://WorldObjects/WorldBottom.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Spawns/PipeSpawnPosition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://WorldObjects/WorldLeft.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Spawns/PlayerSpawnPosition.tscn" type="PackedScene" id=9]
+
+[node name="World" type="Node2D"]
+
+[node name="WorldObjects" type="Node2D" parent="."]
+
+[node name="WorldLeft" parent="WorldObjects" instance=ExtResource( 6 )]
+
+[node name="WorldBottom" parent="WorldObjects" instance=ExtResource( 4 )]
+position = Vector2( 0, 648 )
+collision_layer = 8
+collision_mask = 0
+
+[node name="WorldTop" parent="WorldObjects" instance=ExtResource( 3 )]
+position = Vector2( 0, -11 )
+
+[node name="PlayerSpawnPosition" parent="." instance=ExtResource( 9 )]
+
+[node name="PipeSpawnPosition" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1280, 272 )
+spawn_range = {
+"max": 420,
+"min": 0
+}
+
+[node name="Interface" parent="." instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[editable path="PipeSpawnPosition"]

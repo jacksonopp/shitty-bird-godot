@@ -1,0 +1,166 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/UI/label_bg.png" type="Texture" id=1]
+[ext_resource path="res://UI/UITheme.tres" type="Theme" id=2]
+[ext_resource path="res://UI/Interface.gd" type="Script" id=3]
+
+[node name="Interface" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="NinePatchRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -360.0
+margin_top = 24.0
+margin_right = -24.0
+margin_bottom = 104.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="Score"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -141.5
+margin_top = -31.5
+margin_right = 141.5
+margin_bottom = 31.5
+text = "Score = 0"
+align = 1
+valign = 1
+
+[node name="GameOverScreen" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -172.0
+margin_right = 400.0
+margin_bottom = 172.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreArea" type="Control" parent="GameOverScreen"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -392.0
+margin_top = -164.0
+margin_right = -8.0
+margin_bottom = 164.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreLabel" type="Label" parent="GameOverScreen/HighScoreArea"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -164.5
+margin_top = 16.0
+margin_right = 164.5
+margin_bottom = 79.0
+text = "High Score"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="Label" parent="GameOverScreen/HighScoreArea"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -104.0
+margin_top = 88.0
+margin_right = 104.0
+margin_bottom = 151.0
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YourScoreLabel" type="Label" parent="GameOverScreen/HighScoreArea"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -166.0
+margin_top = -152.0
+margin_right = 166.0
+margin_bottom = -89.0
+text = "Your Score"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YourScore" type="Label" parent="GameOverScreen/HighScoreArea"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -88.0
+margin_top = -80.0
+margin_right = 88.0
+margin_bottom = -17.0
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonArea" type="Control" parent="GameOverScreen"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -176.0
+margin_right = 416.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartGameButton" type="Button" parent="GameOverScreen/ButtonArea"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -31.0
+margin_right = 88.0
+margin_bottom = 32.0
+text = "Play"
+
+[node name="PressSpace" type="Label" parent="."]
+visible = false
+margin_left = 48.0
+margin_top = 304.0
+margin_right = 465.0
+margin_bottom = 433.0
+text = "PRESS SPACE
+TO START"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="GameOverScreen/ButtonArea/StartGameButton" to="." method="_on_StartGameButton_pressed"]
