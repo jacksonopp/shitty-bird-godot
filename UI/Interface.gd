@@ -14,7 +14,7 @@ func _ready() -> void:
 	state.connect("score_change", self, "update_score")
 	show_game_over_screen(0)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !state.is_game_over and !state.is_game_started:
 		update_score(0)
 		pressSpace.show()

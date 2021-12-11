@@ -20,10 +20,11 @@ func _ready() -> void:
 func _on_Timer_timeout() -> void:
 	var spawn_position = position
 	spawn_position.y += rand_range(spawn_range.min, spawn_range.max)
+	print("before spawn")
 	spawn(pipePacked, spawn_position)
 
 func start_timer() -> void:
 	timer.start()
 	
 func stop_timer(_unused) -> void:
-	timer.start()
+	timer.stop()
